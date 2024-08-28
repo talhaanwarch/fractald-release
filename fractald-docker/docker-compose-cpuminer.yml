@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cpuminer:
+    build: .
+    networks:
+      - fractal-bitcoin
+    container_name: cpuminer_container
+    entrypoint: ./minerd -o fractald-docker-bitcoind-1:8332 -u fractalbitcoin -p fractalbitcoin_1234567 --coinbase-addr=bc1xxxxxxxxxxxxxxxxxxxxxxxx -a sha256d -t 1 --no-longpoll
+
+networks:
+    fractal-bitcoin:
+      external: true

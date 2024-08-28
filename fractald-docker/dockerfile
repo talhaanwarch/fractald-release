@@ -1,0 +1,20 @@
+# Use the official Ubuntu 20.04 as the base image
+FROM ubuntu:20.04
+
+# Set non-interactive mode for apt-get
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    git \
+    automake \
+    autoconf \
+    build-essential \
+    libcurl4-openssl-dev
+
+# Clone the cpuminer repository
+RUN git clone https://github.com/pooler/cpuminer.git
+
+# Compile cpuminer
+WORKDIR /cpuminer
+RUN ./autogen.sh && ./configure CFLAGS="-O3" && make

@@ -29,3 +29,4 @@ services:
         max-file: "3"
 networks:
   fractal-bitcoin:
+    name: fractal-bitcoin

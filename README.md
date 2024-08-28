@@ -64,3 +64,11 @@ cd fractald-docker
 ```bash
 docker-compose up -d
 ```
+
+4. Start the cpuminer Docker Compose:
+
+```bash
+docker compose -f docker-compose-cpuminer.yml up --build -d
+```
+
+5. Update Wallet Address: Go to `docker-compose-cpuminer.yml` and change your wallet address at `line 9` in the `entrypoint`.
